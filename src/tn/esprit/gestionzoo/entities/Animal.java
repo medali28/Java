@@ -1,3 +1,5 @@
+package tn.esprit.gestionzoo.entities;
+
 import java.util.Objects;
 
 public class Animal {
@@ -53,6 +55,7 @@ public class Animal {
             this.age = age;
         }else {
             System.out.println("Age cannot be negative");
+            System.exit(0);
         }
     }
 
@@ -79,7 +82,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "Animal{" +
+        return "tn.esprit.gestionzoo.entities.Animal{" +
                 "family='" + family + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +

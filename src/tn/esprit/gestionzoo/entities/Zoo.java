@@ -1,5 +1,7 @@
+package tn.esprit.gestionzoo.entities;
+
 import java.util.ArrayList;
-import java.util.List;
+
 public class Zoo {
     private  ArrayList<Animal> animals ;
     private String name;
@@ -23,6 +25,7 @@ public class Zoo {
           this.name = name;
       }else{
           System.out.println("Name not empty");
+          System.exit(0);
       }
     }
 
@@ -40,20 +43,20 @@ public class Zoo {
 
     @Override
     public String toString() {
-        return "Zoo{" +
+        return "tn.esprit.gestionzoo.entities.Zoo{" +
                 "name=" + name + "\n" +
                 ", city=" + city + "\n" +
                 ", nbrCages=" + nbrCages +
                 '}';
     }
 
-    void displayZoo() {
+    public void displayZoo() {
         System.out.println("Nom du zoo : " + name);
         System.out.println("Ville du zoo : " + city);
         System.out.println("Nombre de cages : " + nbrCages);
     }
 
-    int searchAnimal(Animal animalToSearch) {
+    public int searchAnimal(Animal animalToSearch) {
         for (Animal animal : animals)
         {
             if (animal.getName().equals(animalToSearch.getName())){
@@ -63,7 +66,7 @@ public class Zoo {
        return  -1;
     }
 
-     boolean addAnimal(Animal animal) {
+     public boolean addAnimal(Animal animal) {
         if (!isZooFull() && !animals.contains(animal) ) {
             animals.add(animal);
             return true;
@@ -73,7 +76,7 @@ public class Zoo {
 
 
 
-    void displayAnimals() {
+    public void displayAnimals() {
         System.out.println("Animaux dans le zoo:");
         for (Animal animal : animals)
         {
@@ -81,17 +84,17 @@ public class Zoo {
         }
     }
 
-     boolean removeAnimal(Animal animalToRemove) {
+     public boolean removeAnimal(Animal animalToRemove) {
         return  animals.remove(animalToRemove);
     }
 
 
-    boolean isZooFull() {
+    public boolean isZooFull() {
         return animals.size() == nbrCages;
     }
 
 
-    Zoo comparerZoo(Zoo myZoo, Zoo secondZoo) {
+    public Zoo comparerZoo(Zoo myZoo, Zoo secondZoo) {
         return myZoo.animals.size() < secondZoo.animals.size() ? secondZoo:myZoo;
     }
 }

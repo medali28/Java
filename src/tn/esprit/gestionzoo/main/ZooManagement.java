@@ -1,3 +1,6 @@
+package tn.esprit.gestionzoo.main;
+import  tn.esprit.gestionzoo.entities.*;
+
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -5,8 +8,8 @@ public class ZooManagement {
     public static void main(String[] args) {
 /*
         Instruction 5 :
-        Animal lion = new Animal("Félin", "lion", 3, true);
-        Zoo myZoo = new Zoo("Mon Zoo", "Ma Ville", 25);
+        tn.esprit.gestionzoo.entities.Animal lion = new tn.esprit.gestionzoo.entities.Animal("Félin", "lion", 3, true);
+        tn.esprit.gestionzoo.entities.Zoo myZoo = new tn.esprit.gestionzoo.entities.Zoo("Mon tn.esprit.gestionzoo.entities.Zoo", "Ma Ville", 25);
 */
 
 
@@ -38,24 +41,24 @@ public class ZooManagement {
 //        Instruction 8 :
 
         Zoo myZoo = new Zoo();
-        myZoo.setName("Mon Zoo");
+        myZoo.setName("Mon tn.esprit.gestionzoo.entities.Zoo");
         myZoo.setCity("Ma Ville");
         myZoo.displayZoo();
         System.out.println(myZoo);
         System.out.println(myZoo.toString());
         /*
         output de instruction  myZoo.displayZoo();
-        Nom du zoo : Mon Zoo
+        Nom du zoo : Mon tn.esprit.gestionzoo.entities.Zoo
         Ville du zoo : Ma Ville
         Nombre de cages : 2
 
         output de instruction System.out.println(myZoo); et System.out.println(myZoo.toString());
-        Zoo@5f184fc6
-        Zoo@5f184fc6
+        tn.esprit.gestionzoo.entities.Zoo@5f184fc6
+        tn.esprit.gestionzoo.entities.Zoo@5f184fc6
         */
         /*
         Lorsque vous utilisez System.out.println(myZoo); et System.out.println(myZoo.toString());
-        et que la classe Zoo n'a pas redéfini la méthode toString()
+        et que la classe tn.esprit.gestionzoo.entities.Zoo n'a pas redéfini la méthode toString()
         donc ils afficher adresse mémoire
         */
 
@@ -106,10 +109,10 @@ public class ZooManagement {
         myZoo.displayAnimals();
         /*
         output :
-        Animal 1:
-        Animal{family='Félin', name='lion', age=3, isMammal=true}
-        Animal 2:
-        Animal{family='Félin', name='Tigre', age=8, isMammal=true}
+        tn.esprit.gestionzoo.entities.Animal 1:
+        tn.esprit.gestionzoo.entities.Animal{family='Félin', name='lion', age=3, isMammal=true}
+        tn.esprit.gestionzoo.entities.Animal 2:
+        tn.esprit.gestionzoo.entities.Animal{family='Félin', name='Tigre', age=8, isMammal=true}
          */
         Animal animalRecherche1 = new Animal();
         animalRecherche1.setAge(3);
@@ -171,14 +174,14 @@ public class ZooManagement {
         L'animal 4 a été ajouté au zoo avec succès !
         L'animal lion a été trouvé à l'indice:0
         Animaux dans le zoo:
-        Animal 1:
-        Animal{family='Félin', name='lion', age=3, isMammal=true}
-        Animal 2:
-        Animal{family='Félin', name='Tigre', age=8, isMammal=true}
-        Animal 3:
-        Animal{family='Éléphant', name='elephant', age=5, isMammal=true}
-        Animal 4:
-        Animal{family='Félin', name='lion', age=3, isMammal=true}
+        tn.esprit.gestionzoo.entities.Animal 1:
+        tn.esprit.gestionzoo.entities.Animal{family='Félin', name='lion', age=3, isMammal=true}
+        tn.esprit.gestionzoo.entities.Animal 2:
+        tn.esprit.gestionzoo.entities.Animal{family='Félin', name='Tigre', age=8, isMammal=true}
+        tn.esprit.gestionzoo.entities.Animal 3:
+        tn.esprit.gestionzoo.entities.Animal{family='Éléphant', name='elephant', age=5, isMammal=true}
+        tn.esprit.gestionzoo.entities.Animal 4:
+        tn.esprit.gestionzoo.entities.Animal{family='Félin', name='lion', age=3, isMammal=true}
         J'ai remarqué que la méthode renverra l'index du premier animal correspondant trouvé dans le zoo.
 
         */
@@ -189,7 +192,7 @@ public class ZooManagement {
         pour corriger cette erreur on ajouter function boolean pour test si animail existe ou non
         avant ajouter dans le zoo et utilise function equals pour compare 2 objects
         - function equals est ajouter dans la classe animal
-        - function isAnimalInZoo(animal) est ajouter dans le class Zoo et appelle dans le function addAnimal(animal)
+        - function isAnimalInZoo(animal) est ajouter dans le class tn.esprit.gestionzoo.entities.Zoo et appelle dans le function addAnimal(animal)
          */
         myZoo.displayAnimals();
     /*
@@ -199,12 +202,12 @@ public class ZooManagement {
         L'animal 4 n'a pas pu être ajouté au zoo.
         L'animal lion a été trouvé à l'indice:0
         Animaux dans le zoo:
-        Animal 1:
-        Animal{family='Félin', name='lion', age=3, isMammal=true}
-        Animal 2:
-        Animal{family='Félin', name='Tigre', age=8, isMammal=true}
-        Animal 3:
-        Animal{family='Éléphant', name='elephant', age=5, isMammal=true}
+        tn.esprit.gestionzoo.entities.Animal 1:
+        tn.esprit.gestionzoo.entities.Animal{family='Félin', name='lion', age=3, isMammal=true}
+        tn.esprit.gestionzoo.entities.Animal 2:
+        tn.esprit.gestionzoo.entities.Animal{family='Félin', name='Tigre', age=8, isMammal=true}
+        tn.esprit.gestionzoo.entities.Animal 3:
+        tn.esprit.gestionzoo.entities.Animal{family='Éléphant', name='elephant', age=5, isMammal=true}
      */
 
 
@@ -229,24 +232,24 @@ public class ZooManagement {
             output:
             avant remove:
             Animaux dans le zoo:
-            Animal 1:
-            Animal{family='Félin', name='lion', age=3, isMammal=true}
+            tn.esprit.gestionzoo.entities.Animal 1:
+            tn.esprit.gestionzoo.entities.Animal{family='Félin', name='lion', age=3, isMammal=true}
 
-            Animal 2:
-            Animal{family='Félin', name='Tigre', age=8, isMammal=true}
+            tn.esprit.gestionzoo.entities.Animal 2:
+            tn.esprit.gestionzoo.entities.Animal{family='Félin', name='Tigre', age=8, isMammal=true}
 
-            Animal 3:
-            Animal{family='Éléphant', name='elephant', age=5, isMammal=true}
+            tn.esprit.gestionzoo.entities.Animal 3:
+            tn.esprit.gestionzoo.entities.Animal{family='Éléphant', name='elephant', age=5, isMammal=true}
             *******************
             L'animal a été supprimé avec succès du zoo.
             *******************
             apres remove :
             Animaux dans le zoo:
-            Animal 1:
-            Animal{family='Félin', name='Tigre', age=8, isMammal=true}
+            tn.esprit.gestionzoo.entities.Animal 1:
+            tn.esprit.gestionzoo.entities.Animal{family='Félin', name='Tigre', age=8, isMammal=true}
 
-            Animal 2:
-            Animal{family='Éléphant', name='elephant', age=5, isMammal=true}
+            tn.esprit.gestionzoo.entities.Animal 2:
+            tn.esprit.gestionzoo.entities.Animal{family='Éléphant', name='elephant', age=5, isMammal=true}
          */
 
 
@@ -269,7 +272,7 @@ public class ZooManagement {
 //        Instruction 16 :
 
         Zoo secondZoo = new Zoo();
-        secondZoo.setName("Second Zoo");
+        secondZoo.setName("Second tn.esprit.gestionzoo.entities.Zoo");
         secondZoo.setCity("Ville 2");
         Animal lionToSecondZoo = new Animal();
         lionToSecondZoo.setAge(8);
@@ -297,18 +300,18 @@ public class ZooManagement {
         secondZoo.addAnimal(catToSecondZoo);
         Zoo comparisonResult =myZoo.comparerZoo(myZoo,secondZoo);
         if (comparisonResult.equals(myZoo)){
-            System.out.println("Zoo win is " + myZoo);
+            System.out.println("tn.esprit.gestionzoo.entities.Zoo win is " + myZoo);
         }else{
-            System.out.println("Zoo win is " + secondZoo);
+            System.out.println("tn.esprit.gestionzoo.entities.Zoo win is " + secondZoo);
         }
         comparisonResult.displayAnimals();
         /*
         output:
         Animaux dans le zoo:
-        Animal :Animal{family='Félin', name='lion', age=8, isMammal=true}
-        Animal :Animal{family='Félin', name='tiger', age=6, isMammal=true}
-        Animal :Animal{family='Éléphant', name='elephant', age=11, isMammal=true}
-        Animal :Animal{family='Félin', name='cat', age=2, isMammal=true}
+        tn.esprit.gestionzoo.entities.Animal :tn.esprit.gestionzoo.entities.Animal{family='Félin', name='lion', age=8, isMammal=true}
+        tn.esprit.gestionzoo.entities.Animal :tn.esprit.gestionzoo.entities.Animal{family='Félin', name='tiger', age=6, isMammal=true}
+        tn.esprit.gestionzoo.entities.Animal :tn.esprit.gestionzoo.entities.Animal{family='Éléphant', name='elephant', age=11, isMammal=true}
+        tn.esprit.gestionzoo.entities.Animal :tn.esprit.gestionzoo.entities.Animal{family='Félin', name='cat', age=2, isMammal=true}
 
 
          */
