@@ -41,7 +41,7 @@ public class ZooManagement {
 //        Instruction 8 :
 
         Zoo myZoo = new Zoo();
-        myZoo.setName("Mon tn.esprit.gestionzoo.entities.Zoo");
+        myZoo.setName("Mon Zoo");
         myZoo.setCity("Ma Ville");
         myZoo.displayZoo();
         System.out.println(myZoo);
@@ -73,6 +73,9 @@ public class ZooManagement {
         tigre.setName("Tigre");
         tigre.setMammal(true);
         tigre.setFamily("Félin");
+        System.out.println(lion.toString());
+        System.out.println(tigre.toString());
+        System.out.println(elephant.toString());
         boolean animal1 = myZoo.addAnimal(lion);
         boolean animal2 = myZoo.addAnimal(tigre);
         boolean animal3 = myZoo.addAnimal(elephant);
@@ -272,7 +275,7 @@ public class ZooManagement {
 //        Instruction 16 :
 
         Zoo secondZoo = new Zoo();
-        secondZoo.setName("Second tn.esprit.gestionzoo.entities.Zoo");
+        secondZoo.setName("Secound Zoo");
         secondZoo.setCity("Ville 2");
         Animal lionToSecondZoo = new Animal();
         lionToSecondZoo.setAge(8);
@@ -300,9 +303,9 @@ public class ZooManagement {
         secondZoo.addAnimal(catToSecondZoo);
         Zoo comparisonResult =myZoo.comparerZoo(myZoo,secondZoo);
         if (comparisonResult.equals(myZoo)){
-            System.out.println("tn.esprit.gestionzoo.entities.Zoo win is " + myZoo);
+            System.out.println("Zoo win is " + myZoo);
         }else{
-            System.out.println("tn.esprit.gestionzoo.entities.Zoo win is " + secondZoo);
+            System.out.println("win is " + secondZoo);
         }
         comparisonResult.displayAnimals();
         /*
@@ -315,6 +318,71 @@ public class ZooManagement {
 
 
          */
+
+//      Instruction 21 :
+        System.out.println("------------------------ Instruction 21 -------------------------");
+            Dolphin dolphin = new Dolphin();
+            Penguin penguin = new Penguin();
+            Aquatic aquatic = new Aquatic();
+            Terrestrial terrestrial = new Terrestrial();
+//      Instruction 22 :
+            //Remarquez une erreur lors de la création des objets
+            //  après la création de constructeurs paramétrés
+
+
+            // Parce que cet objet est automatiquement appelé constructeur par défaut
+            // mais après avoir créé des constructeurs paramétrés,
+            // il est nécessaire d'utiliser ces constructeurs lorsqu'aucun constructeur sans paramètre
+            // n'est créé dans la classe
+
+
+             // pour corige cette ereur en va cree constructeur par défaut dans cette class
+
+//        Instruction 23 :
+        System.out.println("------------------------ Instruction 23 -------------------------");
+        Dolphin dolphin1 = new Dolphin("Dolphin", "dolphin", 2, true, "oceans", 60);
+        Penguin penguin1 = new Penguin("Penguin", "penguin", 2,true, "Southern Hemisphere", 200);
+        Aquatic aquatic1 = new Aquatic("Fish", "Tuna", 2, true, "ocean");
+        Terrestrial terrestrial1 = new Terrestrial("Lions", "lion", 5, true, 4);
+
+
+        System.out.println(dolphin1); // dolphin1.toString()
+        System.out.println(penguin1); // penguin1.toString()
+        System.out.println(penguin1); // penguin1.toString()
+        System.out.println(terrestrial1); // terrestrial1.toString()
+
+        /*
+        Output:
+        Dolphin{Aquatic{Animal{family='Dolphin', name='dolphin', age=2, isMammal=true}, habitat='oceans'}, swimmingSpeed=60.0}
+        Penguin{Aquatic{Animal{family='Penguin', name='penguin', age=2, isMammal=true}, habitat='Southern Hemisphere'}, swimmingDepth=200.0}
+        Penguin{Aquatic{Animal{family='Penguin', name='penguin', age=2, isMammal=true}, habitat='Southern Hemisphere'}, swimmingDepth=200.0}
+        Terrestrial{Animal{family='Lions', name='lion', age=5, isMammal=true}, nbrLegs=4}
+
+         */
+
+
+//      Instruction 24 :
+        System.out.println("------------------------ Instruction 24 -------------------------");
+        dolphin1.swim();
+        aquatic1.swim();
+        penguin1.swim();
+
+        /*
+        Output:
+        This dolphin is swimming.
+        This aquatic animal is swimming.
+        This aquatic animal is swimming.
+
+        on remarque que penguin1.swim(); afficher le contenu de swim dans la class aquatic car
+        swim est une méthode hérité.
+        c’est ce qu’on appelle l’héritage de méthode.
+         */
+
+
+
+
+
+
     }
 }
 

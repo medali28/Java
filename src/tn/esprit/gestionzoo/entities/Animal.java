@@ -8,27 +8,15 @@ public class Animal {
     private  int age;
     private boolean isMammal;
 
-
     public Animal() {
     }
 
-
-    void cal(int i , Animal l){
-        l.age=5;
-        i=2;
+    public Animal(String family, String name, int age, boolean isMammal) {
+        this.family = family;
+        this.name = name;
+        this.age = age;
+        this.isMammal = isMammal;
     }
-
-    public static void main(String args[]) {
-        Animal lion = new Animal();
-        lion.setFamily("Félin");
-        lion.setAge(9);
-        lion.setName("lion");
-        lion.setMammal(true);
-        System.out.println(lion.toString());
-        new Animal().cal(2,lion);
-        System.out.println(lion.age);
-    }
-
 
     public String getFamily() {
         return family;
@@ -82,7 +70,7 @@ public class Animal {
 
     @Override
     public String toString() {
-        return "tn.esprit.gestionzoo.entities.Animal{" +
+        return "Animal{" +
                 "family='" + family + '\'' +
                 ", name='" + name + '\'' +
                 ", age=" + age +

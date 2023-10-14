@@ -3,7 +3,7 @@ package tn.esprit.gestionzoo.entities;
 import java.util.ArrayList;
 
 public class Zoo {
-    private  ArrayList<Animal> animals ;
+    private  ArrayList<Animal> animals = new ArrayList<Animal>() ;
     private String name;
     private String city;
     final private int nbrCages = 25;
@@ -21,7 +21,7 @@ public class Zoo {
     }
 
     public void setName(String name) {
-      if (name.isEmpty()){
+      if ( ! name.isEmpty()){
           this.name = name;
       }else{
           System.out.println("Name not empty");
@@ -43,7 +43,7 @@ public class Zoo {
 
     @Override
     public String toString() {
-        return "tn.esprit.gestionzoo.entities.Zoo{" +
+        return "Zoo{" +
                 "name=" + name + "\n" +
                 ", city=" + city + "\n" +
                 ", nbrCages=" + nbrCages +
@@ -67,6 +67,7 @@ public class Zoo {
     }
 
      public boolean addAnimal(Animal animal) {
+         System.out.println(animal);
         if (!isZooFull() && !animals.contains(animal) ) {
             animals.add(animal);
             return true;
