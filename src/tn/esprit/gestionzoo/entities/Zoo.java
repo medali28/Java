@@ -1,5 +1,6 @@
 package tn.esprit.gestionzoo.entities;
 
+import java.io.OptionalDataException;
 import java.util.ArrayList;
 
 public class Zoo {
@@ -7,6 +8,8 @@ public class Zoo {
     private String name;
     private String city;
     final private int nbrCages = 25;
+
+    Aquatic[] aquaticAnimals = new Aquatic[10];
 
     public String getName() {
         return name;
@@ -97,5 +100,88 @@ public class Zoo {
 
     public Zoo comparerZoo(Zoo myZoo, Zoo secondZoo) {
         return myZoo.animals.size() < secondZoo.animals.size() ? secondZoo:myZoo;
+    }
+
+    public void addAquaticAnimal(Aquatic aquatic){
+        for (int i =0 ; i < aquaticAnimals.length ; i++){
+            if (aquaticAnimals[i] == null) {
+                aquaticAnimals[i] = aquatic;
+                break;
+            }
+        }
+
+    }
+     public float maxPenguinSwimmingDepth(Aquatic[] aquaticAnimals){
+        float max = -1 ;
+        for (int i = 0 ; i < aquaticAnimals.length ; i++){
+         if (aquaticAnimals[i] != null && aquaticAnimals[i] instanceof Penguin) {
+            if (((Penguin) aquaticAnimals[i]).getSwimmingDepth() > max){
+                max = ((Penguin) aquaticAnimals[i]).getSwimmingDepth();
+            }
+            }
+        }
+        return max;
+    }
+
+    public void displayNumberOfAquaticsByType(Aquatic[] aquaticAnimals){
+        int numDolphin = 0 ;
+        int numPenguin = 0 ;
+        for (Aquatic aquaticAnimal : aquaticAnimals) {
+            if (aquaticAnimal instanceof Penguin) {
+                numPenguin++;
+            }else if (aquaticAnimal instanceof Dolphin) {
+                numDolphin++;
+            }
+        }
+        System.out.println("number of Dolphin:"+numDolphin);
+        System.out.println("number of Penguin:"+numPenguin);
+    }
+
+    public static void main(String[] args) {
+//      Instruction 25 :
+        System.out.println("------------------------ Instruction 25 -------------------------");
+
+//      Instruction 26 :
+        System.out.println("------------------------ Instruction 26 -------------------------");
+
+        Zoo newZoo = new Zoo();
+        newZoo.setName("newZoo");
+        newZoo.setCity("Tunisia");
+        Aquatic aquaticAnimals1 = new Dolphin("Dolphin", "dolphin", 2, true, "oceans", 60);
+        Aquatic aquaticAnimals2 = new Penguin("Penguin", "penguin", 2,true, "Southern Hemisphere", 200);
+        newZoo.addAquaticAnimal(aquaticAnimals1);
+        newZoo.addAquaticAnimal(aquaticAnimals2);
+
+//      Instruction 27 :
+        System.out.println("------------------------ Instruction 27 -------------------------");
+        aquaticAnimals1.swim();
+        aquaticAnimals2.swim();
+        /*
+        output:
+        This dolphin is swimming.
+        This aquatic animal is swimming.
+
+
+        la classe Fish redéfinit la méthode swim(),
+        mais la classe Dolphin n'a pas redéfini la méthode swim().
+         Lorsque  appele la méthode swim() le niveau le plus bas qui gagne
+         */
+
+
+//      Instruction 28 :
+//        System.out.println("------------------------ Instruction 28 -------------------------");
+//      Instruction 29 :
+        System.out.println("------------------------ Instruction 29 -------------------------");
+        System.out.println("max number depth swimming of penguins in zoo :"+newZoo.maxPenguinSwimmingDepth(newZoo.aquaticAnimals));
+//      Instruction 30 :
+        System.out.println("------------------------ Instruction 30 -------------------------");
+        newZoo.displayNumberOfAquaticsByType(newZoo.aquaticAnimals);
+//      Instruction 31 :
+        System.out.println("------------------------ Instruction 31 -------------------------");
+        Aquatic aquaticAnimals3 = new Penguin("Penguin", "penguin", 10,true, "Southern Hemisphere", 200);
+        Aquatic aquaticAnimals4 = new Penguin("Penguin", "penguin", 2,true, "Southern Hemisphere", 200);
+        System.out.println(aquaticAnimals3.equals(aquaticAnimals2));
+        System.out.println(aquaticAnimals4.equals(aquaticAnimals2));
+
     }
 }

@@ -77,4 +77,8 @@ public class Animal {
                 ", isMammal=" + isMammal +
                 '}';
     }
+
+    public void swim(){
+        System.out.println("hello animal");
+    }
 }
