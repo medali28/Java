@@ -1,5 +1,7 @@
 package tn.esprit.gestionzoo.entities;
 
+import tn.esprit.gestionzoo.Exception.ZooFullException;
+
 import java.io.OptionalDataException;
 import java.util.ArrayList;
 
@@ -7,7 +9,7 @@ public class Zoo {
     private  ArrayList<Animal> animals = new ArrayList<Animal>() ;
     private String name;
     private String city;
-    final private int nbrCages = 25;
+    final private int nbrCages = 2;
 
     Aquatic[] aquaticAnimals = new Aquatic[10];
 
@@ -69,13 +71,15 @@ public class Zoo {
        return  -1;
     }
 
-     public boolean addAnimal(Animal animal) {
-         System.out.println(animal);
-        if (!isZooFull() && !animals.contains(animal) ) {
-            animals.add(animal);
-            return true;
+     public void addAnimal(Animal animal) throws ZooFullException {
+        if (searchAnimal(animal) == -1) {
+            if ( !animals.contains(animal)) {
+                animals.add(animal);
+            }
+        } else{
+            throw new ZooFullException();
         }
-        return false;
+
     }
 
 

@@ -1,4 +1,6 @@
 package tn.esprit.gestionzoo.main;
+import tn.esprit.gestionzoo.Exception.InvalidAgeException;
+import tn.esprit.gestionzoo.Exception.ZooFullException;
 import  tn.esprit.gestionzoo.entities.*;
 
 import java.util.Arrays;
@@ -24,13 +26,22 @@ public class ZooManagement {
 
 //        Instruction 7 :
         Animal lion = new Animal();
-        lion.setAge(6);
+       try {
+           lion.setAge(-2);
+       }catch (InvalidAgeException ex){
+           System.out.println(ex.getMessage());
+       }
         lion.setName("lion");
         lion.setMammal(true);
         lion.setFamily("Félin");
 
         Animal elephant = new Animal();
-        elephant.setAge(5);
+
+        try {
+            elephant.setAge(5);
+        }catch (InvalidAgeException ex){
+            System.out.println(ex.getMessage());
+        }
         elephant.setName("elephant");
         elephant.setMammal(true);
         elephant.setFamily("Éléphant");
@@ -69,31 +80,39 @@ public class ZooManagement {
 //        Instruction 10 :
         // on propos number de cages est 2
         Animal tigre = new Animal();
-        tigre.setAge(8);
+
+
+        try {
+            tigre.setAge(8);
+        }catch (InvalidAgeException ex){
+            System.out.println(ex.getMessage());
+        }
         tigre.setName("Tigre");
         tigre.setMammal(true);
         tigre.setFamily("Félin");
         System.out.println(lion.toString());
         System.out.println(tigre.toString());
         System.out.println(elephant.toString());
-        boolean animal1 = myZoo.addAnimal(lion);
-        boolean animal2 = myZoo.addAnimal(tigre);
-        boolean animal3 = myZoo.addAnimal(elephant);
-        if (animal1) {
-            System.out.println("L'animal 1 a été ajouté au zoo avec succès !");
-        } else {
-            System.out.println("L'animal 1 n'a pas pu être ajouté au zoo.");
+        // ----------
+        try {
+            myZoo.addAnimal(lion);
+        }catch (ZooFullException ex){
+            System.out.println(ex.getMessage());
         }
-        if (animal2) {
-            System.out.println("L'animal 2 a été ajouté au zoo avec succès !");
-        } else {
-            System.out.println("L'animal 2 n'a pas pu être ajouté au zoo.");
+        try {
+            myZoo.addAnimal(tigre);
+        }catch (ZooFullException ex){
+            System.out.println(ex.getMessage());
         }
-        if (animal3) {
-            System.out.println("L'animal 3 a été ajouté au zoo avec succès !");
-        } else {
-            System.out.println("L'animal 3 n'a pas pu être ajouté au zoo.");
+        try {
+            myZoo.addAnimal(elephant);
+        }catch (ZooFullException ex){
+            System.out.println(ex.getMessage());
         }
+
+
+
+
         /*
         output:
         L'animal 1 a été ajouté au zoo avec succès !
@@ -118,7 +137,12 @@ public class ZooManagement {
         tn.esprit.gestionzoo.entities.Animal{family='Félin', name='Tigre', age=8, isMammal=true}
          */
         Animal animalRecherche1 = new Animal();
-        animalRecherche1.setAge(3);
+
+        try {
+            animalRecherche1.setAge(3);
+        }catch (InvalidAgeException ex){
+            System.out.println(ex.getMessage());
+        }
         animalRecherche1.setName("lion");
         animalRecherche1.setMammal(true);
         animalRecherche1.setFamily("Félin");
@@ -129,7 +153,11 @@ public class ZooManagement {
             System.out.println("L'animal " + animalRecherche1.getName() + " n'a pas été trouvé dans le zoo.");
         }
         Animal animalRecherche2 = new Animal();
-        animalRecherche2.setAge(2);
+        try {
+            animalRecherche2.setAge(2);
+        }catch (InvalidAgeException ex){
+            System.out.println(ex.getMessage());
+        }
         animalRecherche2.setName("cat");
         animalRecherche2.setMammal(true);
         animalRecherche2.setFamily("Félin");
@@ -148,18 +176,31 @@ public class ZooManagement {
 
         //  Créez un autre animal identique au premier
         Animal lion2 = new Animal();
-        lion2.setAge(4);
+
+
+        try {
+            lion2.setAge(4);
+        }catch (InvalidAgeException ex){
+            System.out.println(ex.getMessage());
+        }
         lion2.setName("lion");
         lion2.setMammal(true);
         lion2.setFamily("Félin");
-        boolean animal4 = myZoo.addAnimal(lion2);
-        if (animal4) {
-            System.out.println("L'animal 4 a été ajouté au zoo avec succès !");
-        } else {
-            System.out.println("L'animal 4 n'a pas pu être ajouté au zoo.");
-        }
+
+      try {
+          myZoo.addAnimal(lion2);
+      }catch (ZooFullException ex){
+          System.out.println( ex.getMessage());
+      }
+
         Animal animalRecherche3 = new Animal();
-        animalRecherche3.setAge(4);
+
+
+        try {
+            animalRecherche3.setAge(4);
+        }catch (InvalidAgeException ex){
+            System.out.println(ex.getMessage());
+        }
         animalRecherche3.setName("lion");
         animalRecherche3.setMammal(true);
         animalRecherche3.setFamily("Félin");
@@ -220,7 +261,13 @@ public class ZooManagement {
         System.out.println("------------------------ Instruction 13 -------------------------");
         myZoo.displayAnimals();
         Animal animalToRemove = new Animal();
-        animalToRemove.setAge(4);
+
+
+        try {
+            animalToRemove.setAge(4);
+        }catch (InvalidAgeException ex){
+            System.out.println(ex.getMessage());
+        }
         animalToRemove.setName("lion");
         animalToRemove.setMammal(true);
         animalToRemove.setFamily("Félin");
@@ -278,29 +325,73 @@ public class ZooManagement {
         secondZoo.setName("Secound Zoo");
         secondZoo.setCity("Ville 2");
         Animal lionToSecondZoo = new Animal();
-        lionToSecondZoo.setAge(8);
+
+        try {
+            lionToSecondZoo.setAge(8);
+
+        }catch (InvalidAgeException ex){
+            System.out.println(ex.getMessage());
+        }
         lionToSecondZoo.setName("lion");
         lionToSecondZoo.setMammal(true);
         lionToSecondZoo.setFamily("Félin");
-        secondZoo.addAnimal(lionToSecondZoo);
+        try {
+            secondZoo.addAnimal(lionToSecondZoo);
+        }catch (ZooFullException ex){
+            System.out.println(ex.getMessage());
+        }
+
         Animal tigerToSecondZoo = new Animal();
-        tigerToSecondZoo.setAge(6);
+
+
+        try {
+            tigerToSecondZoo.setAge(6);
+        }catch (InvalidAgeException ex){
+            System.out.println(ex.getMessage());
+        }
         tigerToSecondZoo.setName("tiger");
         tigerToSecondZoo.setMammal(true);
         tigerToSecondZoo.setFamily("Félin");
-        secondZoo.addAnimal(tigerToSecondZoo);
+        try {
+            secondZoo.addAnimal(tigerToSecondZoo);
+        }catch (ZooFullException ex){
+            System.out.println( ex.getMessage());
+        }
+
         Animal elephantToSecondZoo = new Animal();
-        elephantToSecondZoo.setAge(11);
+
+
+        try {
+            elephantToSecondZoo.setAge(11);
+        }catch (InvalidAgeException ex){
+            System.out.println(ex.getMessage());
+        }
         elephantToSecondZoo.setName("elephant");
         elephantToSecondZoo.setMammal(true);
         elephantToSecondZoo.setFamily("Éléphant");
-        secondZoo.addAnimal(elephantToSecondZoo);
+        try {
+            secondZoo.addAnimal(elephantToSecondZoo);
+        }catch (ZooFullException ex){
+            System.out.println( ex.getMessage());
+        }
+
         Animal catToSecondZoo = new Animal();
-        catToSecondZoo.setAge(2);
+
+
+        try {
+            catToSecondZoo.setAge(2);
+        }catch (InvalidAgeException ex){
+            System.out.println(ex.getMessage());
+        }
         catToSecondZoo.setName("cat");
         catToSecondZoo.setMammal(true);
         catToSecondZoo.setFamily("Félin");
-        secondZoo.addAnimal(catToSecondZoo);
+        try {
+            secondZoo.addAnimal(catToSecondZoo);
+        }catch (ZooFullException ex){
+            System.out.println( ex.getMessage());
+        }
+
         Zoo comparisonResult =myZoo.comparerZoo(myZoo,secondZoo);
         if (comparisonResult.equals(myZoo)){
             System.out.println("Zoo win is " + myZoo);
