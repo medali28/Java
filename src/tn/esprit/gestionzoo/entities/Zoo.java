@@ -1,5 +1,6 @@
 package tn.esprit.gestionzoo.entities;
 
+import tn.esprit.gestionzoo.Enum.Food;
 import tn.esprit.gestionzoo.Exception.ZooFullException;
 
 import java.io.OptionalDataException;
@@ -187,5 +188,32 @@ public class Zoo {
         System.out.println(aquaticAnimals3.equals(aquaticAnimals2));
         System.out.println(aquaticAnimals4.equals(aquaticAnimals2));
 
-    }
+//   Prosit 8 : Instruction 38
+        Aquatic aquatic = new Aquatic();
+        aquatic.eatMeat(Food.MEAT);
+        /*
+        OutPut :
+        Carnivorous animal
+         */
+
+        Penguin penguin = new Penguin();
+        penguin.eatMeat(Food.MEAT);
+        /*
+         OutPut :
+        Carnivorous animal
+         */
+
+
+        Terrestrial terrestrial = new Terrestrial();
+        terrestrial.eatMeat(Food.MEAT);
+        terrestrial.eatPlant(Food.PLANT);
+        terrestrial.eatPlantAndMeat(Food.BOTH);
+
+        /*
+        OutPut:
+        Carnivorous animal
+        Herbivorous animal
+        Herbivorous and Carnivorous animal
+         */
+     }
 }

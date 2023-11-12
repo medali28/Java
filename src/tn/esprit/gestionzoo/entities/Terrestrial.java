@@ -1,6 +1,9 @@
 package tn.esprit.gestionzoo.entities;
 
-public class Terrestrial extends Animal {
+import tn.esprit.gestionzoo.Enum.Food;
+import tn.esprit.gestionzoo.Interface.Omnivore;
+
+public class Terrestrial extends Animal implements Omnivore<Food> {
     private  int nbrLegs ;
 
     public Terrestrial() {
@@ -25,5 +28,30 @@ public class Terrestrial extends Animal {
                 super.toString()+
                 ", nbrLegs=" + nbrLegs +
                 '}';
+    }
+
+
+    @Override
+    public void eatMeat(Food meat) {
+        if (meat == Food.MEAT || meat == Food.BOTH){
+            System.out.println("Carnivorous animal");
+        }else {
+            System.out.println("Herbivorous animal");
+        }
+    }
+
+    @Override
+    public void eatPlant(Food plant) {
+        if (plant == Food.PLANT || plant == Food.BOTH){
+
+            System.out.println("Herbivorous animal");
+        }else {
+            System.out.println("Carnivorous animal");
+        }
+    }
+
+    @Override
+    public void eatPlantAndMeat(Food food) {
+        System.out.println("Herbivorous and Carnivorous animal");
     }
 }
